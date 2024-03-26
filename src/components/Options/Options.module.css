@@ -1,0 +1,13 @@
+.cards {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: left;
+    border: 2px solid pink;
+
+}
+
+.btn{
+    border: 2px solid black;
+}

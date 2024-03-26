@@ -1,0 +1,23 @@
+
+
+.wrapper{
+  border: 2px solid orange;
+}
+
+.h1wrap{
+    border: 2px solid blue;
+}
+
+.card {
+  padding: 2em;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  
+}
+.nofeed{
+  margin-left: 20px;
+}
+
+
