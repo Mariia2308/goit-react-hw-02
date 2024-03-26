@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+
 import { useEffect } from 'react';
 import css from './Options.module.css';
 
@@ -28,11 +28,6 @@ const Options = ({ resetBtn, onToggleOption, clickTapNote, total }) => {
   );
 };
 
-Options.propTypes = {
-  clickTapNote: PropTypes.func.isRequired,
-  onToggleOption: PropTypes.func.isRequired,
-  resetBtn: PropTypes.func.isRequired,
-  total: PropTypes.number.isRequired
-};
+
 
 export default Options;
