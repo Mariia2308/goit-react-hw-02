@@ -2,14 +2,13 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import Options from './components/Options/Options';
 import Feedback from './components/Feedback/Feedback';
+import Description from './components/Description/Description';
+import Notification from './components/Description/Notification';
 import css from './App.module.css';
 
-function App() {
-
-  
+function App() {  
   const initialNote = { good: 0, neutral: 0, bad: 0 }
 // States
-  const [isOptionsVisible, setIsOptionsVisible] = useState(false);
   const [feedbackGiven, setFeedbackGiven] = useState(false);
   
 //Local Storage parcing and back
@@ -35,7 +34,6 @@ function App() {
 
 //buttons
   const toggleOptionsVisibility = () => {
-    setIsOptionsVisible(!isOptionsVisible);
   }
 
   const handleResetOtions = () => {
@@ -45,10 +43,7 @@ function App() {
 
   return (
     <div className={css.wrapper}>
-      <div className={css.h1wrap}>
-        <h1>Sip Happens Café</h1>
-        <p>Please leave your feedback about our service by selecting one of the options below.</p>
-      </div>
+      <Description />
         <div className="card">
           <Options onToggleOption={toggleOptionsVisibility}
             clickTapNote={clickTapNote}
@@ -60,7 +55,7 @@ function App() {
           <Feedback notes={TapNote} total={totalFeedback} positiveFeedback = {positiveFeedback} />
         
       )}
-      {totalFeedback === 0 && <p className={css.nofeed}>No feedback yet</p>}
+      {totalFeedback === 0 && <Notification /> }
     </div>
   );
 }
