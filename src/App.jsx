@@ -8,8 +8,7 @@ import css from './App.module.css';
 
 function App() {  
   const initialNote = { good: 0, neutral: 0, bad: 0 }
-// States
-  const [feedbackGiven, setFeedbackGiven] = useState(false);
+
   
 //Local Storage parcing and back
   const [TapNote, setTapNote] = useState(() => {
@@ -26,7 +25,6 @@ function App() {
   
   const clickTapNote = (note) => {
     setTapNote({ ...TapNote, [note]: TapNote[note] + 1 })
-    setFeedbackGiven(true);
   }
   const totalFeedback = TapNote.good + TapNote.neutral + TapNote.bad;
   const positiveFeedback = Math.round(((TapNote.good + TapNote.neutral) / totalFeedback) * 100)
@@ -36,9 +34,8 @@ function App() {
   const toggleOptionsVisibility = () => {
   }
 
-  const handleResetOtions = () => {
+  const handleResetOptions = () => {
     setTapNote(initialNote)
-    setFeedbackGiven(false); 
   }
 
   return (
@@ -47,12 +44,11 @@ function App() {
         <div className="card">
           <Options onToggleOption={toggleOptionsVisibility}
             clickTapNote={clickTapNote}
-            resetBtn={handleResetOtions}
+            resetBtn={handleResetOptions}
             total={totalFeedback}
         />
       </div>
-      { (feedbackGiven &&
-          <Feedback notes={TapNote} total={totalFeedback} positiveFeedback = {positiveFeedback} />
+      { (<Feedback notes={TapNote} total={totalFeedback} positiveFeedback = {positiveFeedback} />
         
       )}
       {totalFeedback === 0 && <Notification /> }
